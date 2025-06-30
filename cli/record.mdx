@@ -1,0 +1,31 @@
+---
+title: 'Record a test'
+description: 'Record a test with the CLI'
+---
+
+You can use the CLI to record a new test. Before you begin, ensure you are authenticated and your repo is cloned locally. If you need to do these, follow the [getting started](./get-started) doc.
+
+## Start recording
+
+This guide assumes your repo is at `repo-tests`. To start recording, run.
+
+```sh
+cd repo-tests
+npx @empiricalrun/test-gen record
+```
+
+This command will run setup steps that log in the browser with the test account used in your suite. Once setup is complete, you can start taking actions in the browser to follow the test steps.
+
+## End recording
+
+You can close the browser window when you are done recording.
+
+Artifacts from recording (video, code) will be uploaded to the [dashboard](https://dash.empirical.run/), and this will be created as a request. Our AI agent will start working converting your artifacts into a proper test case that is committed to the test repo.
+
+## Specify test name
+
+You can 
+
+```sh
+npx @empiricalrun/test-gen record --name "example test name"
+```

@@ -1,0 +1,43 @@
+---
+title: 'Get started'
+description: 'Start using the CLI'
+---
+
+The CLI package is @empiricalrun/test-gen and is [hosted on NPM](https://www.npmjs.com/package/@empiricalrun/test-gen).
+
+```sh
+npx @empiricalrun/test-gen help
+```
+
+## Pre-requisites
+
+- Ensure that you have Node.js 20+ installed.
+- Ensure you have an account on [our dashboard](https://dash.empirical.run/). If your team uses Empirical, signing in with your work email should just work.
+
+## Authenticate
+
+Use the `login` command to link the CLI with your authenticated session on the dashboard.
+
+```sh
+npx @empiricalrun/test-gen login
+```
+
+To check your login status, you can use `whoami`.
+
+```sh
+npx @empiricalrun/test-gen whoami
+```
+
+## Clone your repo locally
+
+To access, which repos you have access to, run the `repos` command.
+
+```sh
+npx @empiricalrun/test-gen repos
+```
+
+Pick a repo that you want to clone locally, and run the `setup` command. This will clone the repo, and install dependencies.
+
+```sh
+npx @empiricalrun/test-gen setup --repo-name REPO_NAME
+```
