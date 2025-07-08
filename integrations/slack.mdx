@@ -1,0 +1,25 @@
+---
+title: 'Slack'
+description: 'Install and configure our Slack app'
+icon: 'slack'
+---
+
+Our Slack app adds the `@Empirical` bot to your Slack workspace. This bot
+shares test reports in the channel, and tagging the bot will start agent sessions.
+
+## Installation
+
+1. Navigate to the [Settings](https://dash.empirical.run/settings) page on our dashboard
+2. Click on "Install" on the Slack app to start the OAuth flow
+
+## Configuration
+
+After installation, pick a channel in your Slack workspace where you want to see test reports and/or start agent sessions.
+
+1. Navigate to this Slack channel
+2. Add the `@Empirical` bot to this invite: mentioning the bot should do it
+3. Run a slash command to link this channel, by sending this message in Slack
+
+    ```
+    /empirical link repo-tests
+    ```

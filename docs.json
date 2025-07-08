@@ -19,6 +19,12 @@
               "cli/get-started",
               "cli/record"
             ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/slack"
+            ]
           }
         ]
       }
