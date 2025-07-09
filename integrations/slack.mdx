@@ -23,3 +23,16 @@ After installation, pick a channel in your Slack workspace where you want to see
     ```
     /empirical link repo-tests
     ```
+
+## Permissions
+
+The Slack app requests the following permissions:
+
+| Scope | Purpose |
+| --- | --- |
+| `chat:write`, `chat:write.customize` | Used to share test run reports and AI agent responses |
+| `app_mentions:read` | Bot listens to `@Empirical` mentions to start AI chat sessions |
+| `reactions:write` | Add reactions to messages to acknowledge that agent is working |
+| `channels:history` | Read message threads to get context in threads where `@Empirical` is mentioned |
+| `commands` | Add slash commands for common actions, like subscribing to test reports and triggering new runs |
+
