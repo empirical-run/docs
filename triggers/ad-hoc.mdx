@@ -1,0 +1,17 @@
+---
+title: 'Ad-hoc runs'
+description: 'Trigger a test run once via Dashboard or Slack'
+icon: 'square-1'
+---
+
+## Dashboard
+
+You can trigger a new test run from the [dashboard](https://dash.empirical.run/). Head over to the "test runs" page and select an environment to run on.
+
+## From Slack
+
+Once you have the [Slack app](../integrations/slack) installed, you can use this slash command to trigger a new run for your environment. Specify the `repo-name` and `environment-name` inputs.
+
+```
+/trigger-tests repo-name environment-name
+```
