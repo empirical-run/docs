@@ -1,0 +1,72 @@
+---
+title: 'From CI/CD pipelines'
+description: 'Run tests after production or pre-prod deployments'
+icon: 'webhook'
+---
+
+## Authentication
+
+All of the methods below use API key to authenticate. Generate a new API key from the [dashboard](https://dash.empirical.run/).
+
+## GitHub Actions
+
+Use our [dispatch-action](https://github.com/empirical-run/dispatch-action) if you are using GitHub Actions for CI/CD.
+
+```yml
+- name: Deploy step
+  id: deploy-step
+  run: ...
+
+- name: Dispatch for tests
+  uses: empirical-run/dispatch-action@main
+  with:
+    auth-key: ${{ secrets.EMPIRICALRUN_KEY }}
+    build-url: ${{ steps.deploy-step.outputs.url }}
+    environment: production
+```
+
+## Other providers
+
+For other CI/CD providers, you can trigger a test run with an API call.
+
+### Minimal snippet
+
+```sh
+curl -X POST \
+  https://dispatch.empirical.run/v1/trigger \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $EMPIRICALRUN_KEY" \
+  -d '{ "environment": "production" }'
+```
+
+### Metadata for reporting
+
+You can add more metadata which will associated to the test run reports.
+
+- Repo where the trigger was sent from
+- Details of the commit or branch
+- Other metadata (key-value pairs)
+
+```sh
+curl -X POST \
+  https://dispatch.empirical.run/v1/trigger \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $EMPIRICALRUN_KEY" \
+  -d '{
+    "environment": "production",
+    "origin": {
+      "owner": "$GITHUB_ORG",
+      "name": "$GITHUB_REPO"
+    },
+    "build": {
+      "url": "$BUILD_URL",
+      "commit": "$COMMIT",
+      "branch": "$BRANCH",
+      "commit_url": "$COMMIT_URL"
+    },
+    "metadata": {
+      "pairs": "of",
+      "key": "value"
+    }
+  }'
+```

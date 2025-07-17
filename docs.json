@@ -25,6 +25,14 @@
             "pages": [
               "integrations/slack"
             ]
+          },
+          {
+            "group": "Trigger a test run",
+            "pages": [
+              "triggers/ci-cd",
+              "triggers/scheduled",
+              "triggers/ad-hoc"
+            ]
           }
         ]
       }
